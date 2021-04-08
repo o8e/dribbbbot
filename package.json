@@ -4,13 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf ./dist && tsc -p .",
+    "dev": "nodemon --watch 'src/**/' -e js,ts --exec 'ts-node' ./src/index.ts",
+    "start": "npm run build && node -r ts-node/register ./dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/twitter": "^1.7.0",
+    "playwright-chromium": "^1.10.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "twitter": "^1.7.1"
   }
 }
